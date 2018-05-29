@@ -46,7 +46,7 @@ func testHandler(formatter *render.Render) http.HandlerFunc {
 }
 
 func initRepository(appEnv *cfenv.App) (repo matchRepository) {
-	dbServiceURI, err := cftools.GetVCAPServiceProperty(dbServiceName, "url", appEnv)
+	dbServiceURI, err := cftools.GetVCAPServiceProperty(dbServiceName, "uri", appEnv)
 	if err != nil || dbServiceURI == "" {
 		if err != nil {
 			fmt.Printf("\nError retrieving database configuration: %v\n", err)
