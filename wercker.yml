@@ -35,13 +35,6 @@ build:
           go test -v ./service
 
     - script:
-        name: integration tests
-        code: |
-          export VCAP_SERVICES=`vcapinate -path=./integrations/vcap.yml`
-          export VCAP_APPLICATION={}
-          go test ./integrations/_test -v -race
-
-    - script:
         name: copy files to wercker output
         code: |
           cp -R ./ ${WERCKER_OUTPUT_DIR}
